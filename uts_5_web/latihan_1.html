@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uts_5</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f3f4f6; 
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            font-family: sans-serif;
+        }
+        .container {
+            width: 100%;
+            max-width: 1024px; 
+            min-height: 500px;
+            background-color: white;
+            border: 2px solid #1f2937; 
+        }
+        .header-line {
+            width: 100%;
+            height: 40px;
+            border-bottom: 2px solid #d1d5db; 
+            margin-bottom: 24px;
+        }
+        .button-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 24px;
+        }
+        .box {
+            width: 128px;
+            height: 48px;
+            background-color: #1d4ed8; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        @media (min-width: 640px) {
+            .button-wrapper {
+                flex-direction: row;
+                justify-content: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="header-line"></div>
+
+        <div class="button-wrapper">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+
+    </div>
+
+</body>
+</html>
