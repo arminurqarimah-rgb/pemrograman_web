@@ -1,0 +1,16 @@
+<body style="background:black; color:white; font-family:monospace; padding:20px;">
+    <pre>
+=== DAFTAR KENDARAAN PARKIR ===
+
+No | Plat       | Jenis  | Merk    | Waktu Masuk
+-- | ---------- | ------ | ------- | -----------
+{% for item in parkir %}
+{{ loop.index }}  | {{ item.plat.ljust(10) }} | {{ item.jenis.ljust(6) }} | {{ item.merk.ljust(7) }} | {{ item.waktu_masuk.strftime('%H:%M:%S') }}
+{% endfor %}
+{% if not parkir %}
+(Parkiran Kosong)
+{% endif %}
+
+<a href="/" style="color:yellow; text-decoration:none; display:block; margin-top:20px;">[ Kembali ke Menu Utama ]</a>
+    </pre>
+</body>

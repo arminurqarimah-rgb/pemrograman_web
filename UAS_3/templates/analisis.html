@@ -1,0 +1,27 @@
+<body style="background:black; color:white; font-family:monospace; padding:20px;">
+    <pre>
+=== ANALISIS PENDAPATAN ===
+
+Periode      | Kendaraan | Pendapatan
+------------ | --------- | ----------
+Hari Ini     | {{ s.h_cnt }}         | Rp{{ s.hari }}
+Minggu Ini   | {{ s.m_cnt }}         | Rp{{ s.minggu }}
+Bulan Ini    | {{ s.b_cnt }}         | Rp{{ s.bulan }}
+Tahun Ini    | {{ s.th_cnt }}         | Rp{{ s.tahun }}
+
+-------------------------------------------------------------------------------------------------------------------
+=== DETAIL TRANSAKSI SELESAI ===
+
+No | Plat | Jenis | Merk    | Waktu Masuk                  | Waktu Keluar                 | Total
+-- | ---- | ----- | ------- | ---------------------------- | ---------------------------- | -------
+{% for r in riwayat_data %}
+{{ loop.index }}  | {{ r.plat.ljust(4) }} | {{ r.jenis.ljust(5) }} | {{ r.merk.ljust(7) }} | {{ r.waktu_masuk.strftime('%A, %d/%m %H:%M') }}        | {{ r.waktu_keluar.strftime('%A, %d/%m %H:%M') }}        | Rp{{ r.biaya }}
+{% endfor %}
+{% if not riwayat_data %}
+(Belum ada data transaksi)
+{% endif %}
+-------------------------------------------------------------------------------------------------------------------
+
+<a href="/" style="color:yellow; text-decoration:none; font-weight:bold;">[ Kembali ke Menu ]</a>
+    </pre>
+</body>

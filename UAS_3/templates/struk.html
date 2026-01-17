@@ -1,0 +1,19 @@
+<body style="background:black; color:white; font-family:monospace; padding:20px;">
+    <pre>
+===============================
+       STRUK PEMBAYARAN
+===============================
+Plat Nomor   : {{ data.plat }}
+Durasi       : {{ data.jam }} Jam
+TOTAL BIAYA  : Rp{{ data.total }}
+===============================
+
+<a href="/" style="color:yellow; text-decoration:none;">[ Tekan Enter / Klik Sini untuk Kembali ]</a>
+<script>
+    // Menangkap tombol Enter untuk kembali ke menu utama
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') { window.location.href = '/'; }
+    });
+</script>
+    </pre>
+</body>

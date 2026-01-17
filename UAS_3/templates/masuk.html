@@ -1,0 +1,38 @@
+<body style="background:black; color:white; font-family:monospace; padding:20px;">
+    <pre>
+=== KENDARAAN MASUK ===
+
+{% if error %}
+<span style="color: red;">{{ error }}</span>
+{% endif %}
+
+<form id="formParkir" method="POST">
+Plat  : <input type="text" name="plat" id="i1" required autofocus 
+         style="background:black; color:white; border:none; outline:none; font-family:monospace; font-size:1em; width:200px;">
+
+Jenis : <select name="jenis" id="i2"
+         style="background:black; color:white; border:none; outline:none; font-family:monospace; font-size:1em;">
+            <option value="MOTOR">MOTOR (Rp2.000/jam)</option>
+            <option value="MOBIL">MOBIL (Rp5.000/jam)</option>
+        </select>
+
+Merk  : <input type="text" name="merk" id="i3" required 
+         style="background:black; color:white; border:none; outline:none; font-family:monospace; font-size:1em; width:200px;">
+
+(Gunakan Panah untuk Jenis, ENTER untuk lanjut/simpan)
+</form>
+
+<a href="/" style="color:yellow; text-decoration:none;">[ Batal - Kembali ]</a>
+    </pre>
+
+    <script>
+        const p = document.getElementById('i1');
+        const j = document.getElementById('i2');
+        const m = document.getElementById('i3');
+        const f = document.getElementById('formParkir');
+
+        p.addEventListener('keydown', (e) => { if(e.key==='Enter'){ e.preventDefault(); j.focus(); } });
+        j.addEventListener('keydown', (e) => { if(e.key==='Enter'){ e.preventDefault(); m.focus(); } });
+        m.addEventListener('keydown', (e) => { if(e.key==='Enter'){ f.submit(); } });
+    </script>
+</body>
