@@ -1,0 +1,21 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+<div class="text-center py-5">
+    <div class="mb-4">
+        <img src="{{ url_for('static', filename='foto.jpg') }}" alt="Foto Profil" class="profile-img">
+    </div>
+    <h1 class="fw-bold display-4 mb-1">NUR QARIMAH ARMI</h1>
+    <h3 class="text-primary fw-light mb-4">Backend Developer | Python Specialist</h3>
+    <hr class="w-25 mx-auto">
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-9">
+            <p class="lead text-muted fst-italic">
+                "Berdedikasi dalam membangun arsitektur server yang efisien, aman, dan skalabel. Menjelajahi dunia baris kode untuk menciptakan solusi digital yang berdampak nyata."
+            </p>
+        </div>
+    </div>
+    <div class="mt-5 no-print">
+        <a href="/pengalaman" class="btn btn-primary btn-lg px-5 shadow">Lihat Portfolio</a>
+    </div>
+</div>
+{% endblock %}

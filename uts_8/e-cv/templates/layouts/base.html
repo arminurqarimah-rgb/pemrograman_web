@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-CV Profesional</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #f0f2f5; color: #2d3436; }
+        .cv-paper { background: white; max-width: 900px; margin: 30px auto; padding: 50px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+        .cv-paper::before { content: ""; position: absolute; top: 0; left: 0; width: 10px; height: 100%; background: #0984e3; }
+        .section-title { color: #0984e3; font-weight: 700; text-transform: uppercase; border-bottom: 2px solid #dfe6e9; padding-bottom: 8px; margin-top: 30px; margin-bottom: 20px; font-size: 1.2rem; }
+        .profile-img { width: 180px; height: 180px; object-fit: cover; border-radius: 50%; border: 6px solid #e1f5fe; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .skill-badge { background: #0984e3; color: white; padding: 6px 15px; border-radius: 50px; font-size: 0.85rem; display: inline-block; margin: 4px; transition: 0.3s; }
+        .skill-badge:hover { background: #74b9ff; transform: translateY(-2px); }
+        .timeline-item { border-left: 2px solid #0984e3; padding-left: 20px; position: relative; margin-bottom: 25px; }
+        .timeline-item::after { content: ""; position: absolute; left: -9px; top: 5px; width: 16px; height: 16px; background: #0984e3; border-radius: 50%; }
+        @media print { .no-print { display: none !important; } .cv-paper { margin: 0; box-shadow: none; width: 100%; } }
+    </style>
+</head>
+<body>
+    <div class="no-print">{% include "partials/menu.html" %}</div>
+    <div class="container pb-5">
+        <div id="cv-content" class="cv-paper">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    <script>
+        function downloadPDF() {
+            const element = document.getElementById('cv-content');
+            const opt = { margin: 0.3, filename: 'Curriculum_Vitae.pdf', image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 3 }, jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' } };
+            html2pdf().set(opt).from(element).save();
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

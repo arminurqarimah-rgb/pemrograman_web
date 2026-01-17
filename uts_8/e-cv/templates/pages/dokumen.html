@@ -1,0 +1,50 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<div class="text-center py-5 no-print">
+    <h2 class="fw-bold mb-4">Unduh Curriculum Vitae</h2>
+    <p class="text-muted mb-5">Klik tombol di bawah untuk mengunduh CV lengkap dalam format PDF atau Word.</p>
+    
+    <div class="d-grid gap-3 d-md-flex justify-content-center">
+        <button onclick="downloadFullPDF()" class="btn btn-danger btn-lg px-5 shadow">Download PDF</button>
+        <button onclick="downloadFullWord()" class="btn btn-primary btn-lg px-5 shadow">Download Word (.doc)</button>
+    </div>
+</div>
+
+<div id="full-cv-content" style="display: none; padding: 40px; font-family: Arial, sans-serif;">
+    <h1 style="color: #0d6efd;">NUR QARIMAH ARMI</h1>
+    <p style="font-size: 1.2rem; color: #666;">Backend Developer | Python Specialist</p>
+    <hr>
+    <h3>PENDIDIKAN</h3>
+    <p><strong>S1 Teknik Informatika</strong> - Universitas Teknologi (2020 - 2024)</p>
+    <h3>PENGALAMAN</h3>
+    <p><strong>Magang Backend</strong> - PT Maju Jaya. Membangun API dengan Flask.</p>
+    <h3>KEAHLIAN</h3>
+    <p>Python, Flask, SQL, Git, Teamwork.</p>
+    <h3>KONTAK</h3>
+    <p>Email: nur@email.com | WhatsApp: +62 812-xxxx-xxxx</p>
+</div>
+
+<script>
+    function downloadFullPDF() {
+        const element = document.getElementById('full-cv-content');
+        element.style.display = 'block'; 
+        html2pdf().set({
+            margin: 0.5,
+            filename: 'CV_Lengkap_Nur_Qarimah.pdf',
+            html2canvas: { scale: 3 },
+            jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+        }).from(element).save().then(() => { element.style.display = 'none'; });
+    }
+
+    function downloadFullWord() {
+        const content = document.getElementById('full-cv-content').innerHTML;
+        const blob = new Blob(['\ufeff', content], { type: 'application/msword' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = 'CV_Lengkap_Nur_Qarimah.doc';
+        link.click();
+    }
+</script>
+{% endblock %}
