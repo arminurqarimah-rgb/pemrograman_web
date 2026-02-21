@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No 3</title>
+    <style>
+        body {
+            height: 250vh; 
+            margin: 0;
+            background-color: #ffffff;
+        }
+
+        .container-box {
+            position: fixed;   
+            top: 40px;      
+            left: 50%;        
+            transform: translateX(-50%); 
+            display: flex;
+            gap: 20px;         
+            z-index: 1000;
+        }
+
+        .kotak {
+            width: 200px;
+            height: 200px;
+            background-color: white;      
+            color: black;                 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            border-radius: 8px;
+            border: 2px solid black; 
+
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-box">
+        <div class="kotak"></div>
+        <div class="kotak"></div>
+        <div class="kotak"></div>
+    </div>
+
+</body>
+</html>
